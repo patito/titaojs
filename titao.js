@@ -6,7 +6,7 @@ function TiTao() {
 //Array Functions
 
 TiTao.prototype.isArray = Array.isArray || function (obj) {
-    return Object.prototype.toString.call(obj) === '[object Array]';
+    return obj instanceof Array;
 };
 
 TiTao.prototype.first = function (array) {
