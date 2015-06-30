@@ -47,8 +47,7 @@ describe("Array", function(){
   describe("head()", function(){
     it("should return an array", function(){
       assert.deepEqual([1, 2], TT.head([1,2,3]));
-      assert.deepEqual([], TT.head([1]));
-      assert.deepEqual([], TT.head({}));
+      assert.deepEqual([1], TT.head([1]));
       assert.deepEqual([], TT.head([]));
       assert.deepEqual(TT.initial([1,2,3]), TT.head([1,2,3]));
       assert.deepEqual(TT.initial([1, 2], 1), TT.head([1,3]));
@@ -61,6 +60,13 @@ describe("Array", function(){
       assert.deepEqual(TT.initial([1, 2, 3], 0), TT.rest([1,2,3], 0));
       assert.deepEqual([], TT.rest([1,2,3], 3));
       assert.deepEqual([], TT.rest([1,2,3], 4));
+    })
+  })
+  describe("tail()", function(){
+    it("should return an array", function(){
+      assert.deepEqual([2, 3], TT.tail([1,2,3]));
+      assert.deepEqual([1], TT.tail([1]));
+      assert.deepEqual([], TT.tail([]));
     })
   })
 })

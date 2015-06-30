@@ -19,6 +19,8 @@ TiTao.prototype.initial = function (array, n) {
 };
 
 TiTao.prototype.head = function (array) {
+	if (this.isArray(array) === false) return void 0;
+	if (array.length === 1) return array;
     return this.initial(array, 1);
 };
 
@@ -27,9 +29,10 @@ TiTao.prototype.rest = function (array, n) {
 };
 
 TiTao.prototype.tail = function (array) {
-    return Array.prototype.slice.call(array, 1);
+    if (this.isArray(array) === false) return void 0;
+    if (array.length === 1) return array;
+    return this.rest(array, 1)
 };
-
 
 //Misc. Functions
 
