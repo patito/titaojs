@@ -10,17 +10,22 @@ TiTao.prototype.isArray = Array.isArray || function (obj) {
 };
 
 TiTao.prototype.first = function (array) {
-     if (array == null) return void 0;
-     return array[0];
+    if (array == null) return void 0;
+    return array[0];
 };
 
 TiTao.prototype.initial = function (array, n) {
     return Array.prototype.slice.call(array, 0, array.length - (n == null? 1: n));
 };
 
+TiTao.prototype.last = function (array) {
+    if (array == null) return void 0;
+    return array[array.length - 1];
+}
+
 TiTao.prototype.head = function (array) {
-	if (this.isArray(array) === false) return void 0;
-	if (array.length === 1) return array;
+    if (this.isArray(array) === false) return void 0;
+    if (array.length === 1) return array;
     return this.initial(array, 1);
 };
 

@@ -32,6 +32,29 @@ describe("Array", function(){
       assert.equal(undefined, TT.first([undefined, 0, 1]));
       assert.equal(null, TT.first([null, 0, 1]));
       assert.deepEqual(undefined, TT.first([, 0, 1]));
+      assert.deepEqual([4, 5], TT.first([[4,5],[0, 1]]));
+      assert.deepEqual({name: "paulo"},
+          TT.first([{name: "paulo"},{surname: "benatto"}]));
+    })
+  })
+  describe("last()", function(){
+    it("should return undefined", function(){
+      assert.equal(undefined, TT.last([]));
+      assert.equal(undefined, TT.last(1));
+      assert.equal(undefined, TT.last({}));
+      assert.equal(undefined, TT.last(null));
+      assert.equal(undefined, TT.last([undefined, 0, 1, undefined]));
+    })
+    it("should return the last value of array", function(){
+      assert.equal(5, TT.last([3,2,1, 5]));
+      assert.equal(1, TT.last([1]));
+      assert.equal("O", TT.last("TITAO"));
+      assert.equal(1, TT.last([undefined, 0, 1]));
+      assert.equal(null, TT.last([null, 0, 1, null]));
+      assert.deepEqual([0,1], TT.last([[1],[0, 1]]));
+      assert.deepEqual({surname: "benatto"},
+          TT.last([{name: "paulo"},{surname: "benatto"}]));
+      assert.deepEqual(TT.first([0,1]), TT.last([1, 0]));
     })
   })
   describe("initial()", function(){
