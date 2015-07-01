@@ -23,14 +23,28 @@ TiTao.prototype.last = function (array) {
     return array[array.length - 1];
 }
 
+TiTao.prototype.rest = function (array, n) {
+    return Array.prototype.slice.call(array, n == null? 1 : n);
+};
+
+//change to use each
+TiTao.prototype.compact = function (array) {
+    var i = 0,
+        v = [];
+
+    if (this.isArray(array) == false) return void 0;
+    for (; i < array.length; i++) {
+        if (array[i]) {
+            v.push(array[i]);
+        }
+    }
+    return v;
+};
+
 TiTao.prototype.head = function (array) {
     if (this.isArray(array) === false) return void 0;
     if (array.length === 1) return array;
     return this.initial(array, 1);
-};
-
-TiTao.prototype.rest = function (array, n) {
-    return Array.prototype.slice.call(array, n == null? 1 : n);
 };
 
 TiTao.prototype.tail = function (array) {

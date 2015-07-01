@@ -1,4 +1,4 @@
 var TT = require('./titao.js');
 
-console.log(TT.tail([1]));
+console.log(TT.compact([0, 1, false, 2, '', 3]));
 
