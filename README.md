@@ -5,7 +5,7 @@ a simple project to help me in my way to learn JavaScript.
 
 ## How to use
 
-I don't know, try to type with your nose and see if help.
+I don't know, try to type with your nose and see if it helps. :)
 
 ## How to report bugs?
 
