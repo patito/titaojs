@@ -29,11 +29,11 @@ TiTao.prototype.rest = function (array, n) {
 
 //change to use each
 TiTao.prototype.compact = function (array) {
-    var i = 0,
+    var i,
         v = [];
 
     if (this.isArray(array) == false) return void 0;
-    for (; i < array.length; i++) {
+    for (i = 0; i < array.length; i++) {
         if (array[i]) {
             v.push(array[i]);
         }
