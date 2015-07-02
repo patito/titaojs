@@ -85,6 +85,15 @@ describe("Array", function(){
       assert.deepEqual([], TT.rest([1,2,3], 4));
     })
   })
+  describe("compact()", function(){
+    it("should return an array", function(){
+      assert.deepEqual([1, 2, 3], TT.compact([1,2,3]));
+      assert.deepEqual([], TT.compact([null, undefined, 0, ""]));
+      assert.deepEqual([-5], TT.compact([null, -5, undefined, 0, "", NaN]));
+      assert.deepEqual([{}], TT.compact([null, {}, undefined, 0, "", NaN]));
+      assert.deepEqual(TT.initial([1, 2], 1), TT.compact([1, false, 0, "", NaN]));
+    })
+  })
   describe("tail()", function(){
     it("should return an array", function(){
       assert.deepEqual([2, 3], TT.tail([1,2,3]));
