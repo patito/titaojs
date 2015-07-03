@@ -27,17 +27,24 @@ TiTao.prototype.rest = function (array, n) {
     return Array.prototype.slice.call(array, n == null? 1 : n);
 };
 
+TiTao.prototype.forEach = function(array, callback) {
+    var i;
+
+    if (this.isArray(array) == false) return void 0;
+    for (i = 0; i < array.length; i++) {
+        callback(array[i], i, array);
+    }
+}
+
 //change to use each
 TiTao.prototype.compact = function (array) {
     var i,
         v = [];
 
     if (this.isArray(array) == false) return void 0;
-    for (i = 0; i < array.length; i++) {
-        if (array[i]) {
-            v.push(array[i]);
-        }
-    }
+    this.forEach(array, function (value, i, array) {
+        if (value) v.push(value);
+    });
     return v;
 };
 
