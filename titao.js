@@ -1,3 +1,5 @@
+'use strict';
+
 function TiTao() {
 
     this.version = '0.0.1';
@@ -15,7 +17,7 @@ TiTao.prototype.first = function (array) {
 };
 
 TiTao.prototype.initial = function (array, n) {
-    return Array.prototype.slice.call(array, 0, array.length - (n == null? 1: n));
+    return Array.prototype.slice.call(array, 0, array.length - (n == null ? 1 : n));
 };
 
 TiTao.prototype.last = function (array) {
