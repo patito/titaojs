@@ -32,7 +32,7 @@ TiTao.prototype.rest = function (array, n) {
 TiTao.prototype.forEach = function(array, callback) {
     var i;
 
-    if (this.isArray(array) == false) return void 0;
+    if (this.isArray(array) === false) return void 0;
     for (i = 0; i < array.length; i++) {
         callback(array[i], i, array);
     }
@@ -43,11 +43,25 @@ TiTao.prototype.compact = function (array) {
     var i,
         v = [];
 
-    if (this.isArray(array) == false) return void 0;
+    if (this.isArray(array) === false) return void 0;
     this.forEach(array, function (value, i, array) {
         if (value) v.push(value);
     });
     return v;
+};
+
+TiTao.prototype.flatten = function (array) {
+    var i,
+        ret = [];
+
+    for (i = 0; i < array.length; i++) {
+        if (this.isArray(array[i])) {
+            ret = ret.concat(this.flatten(array[i]));
+        } else {
+            ret.push(array[i]);
+        }
+    }
+    return ret;
 };
 
 TiTao.prototype.head = function (array) {
