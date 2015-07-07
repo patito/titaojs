@@ -96,6 +96,11 @@ describe("Array", function () {
       assert.deepEqual(TT.initial([1, 2], 1), TT.compact([1, false, 0, "", NaN]));
     })
   })
+  describe("flatten()", function () {
+    it("should return an array", function () {
+      assert.deepEqual([1, 2, 3, 4, 5, 6], TT.flatten([1, [2, [3, [4, [5, [6]]]]]]));
+    })
+  })  
   describe("tail()", function () {
     it("should return an array", function () {
       assert.deepEqual([2, 3], TT.tail([1, 2, 3]));
